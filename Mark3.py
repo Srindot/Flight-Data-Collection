@@ -1,10 +1,8 @@
-
 import pterasoftware as ps
 import numpy as np
 import matplotlib.pyplot as plt
 from SelfFunctions import extract_forces, plot_forces, extract_second_cycle, save_flight_data_to_csv
 
-# Function call for the unsteady aerodynamic model with the NACA 8304 airfoil
 # Function call for the unsteady aerodynamic model with the NACA 8304 airfoil
 def simulation(va= 5, aoa = 5, ff = 0.2):
     example_airplane=ps.geometry.Airplane(
@@ -181,15 +179,15 @@ def simulation(va= 5, aoa = 5, ff = 0.2):
     #     save=True,
     # )
 
-#     ps.output.animate(
-#     unsteady_solver=example_solver,
-#     scalar_type="lift",
-#     show_wake_vortices=True,
-#     # Tell the animate function to not save the animation as file. This way,
-#     # the animation will still be displayed but not saved. This value defaults to
-#     # false.
-#     save=True,
-# )
+    ps.output.animate(
+    unsteady_solver=example_solver,
+    scalar_type="lift",
+    show_wake_vortices=True,
+    # Tell the animate function to not save the animation as file. This way,
+    # the animation will still be displayed but not saved. This value defaults to
+    # false.
+    save=True,
+)
 
     lift, induced_drag, side_force, pitching_moment = extract_forces(example_solver)  
 
@@ -202,12 +200,12 @@ def simulation(va= 5, aoa = 5, ff = 0.2):
 # Air_Speed = [1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0]
 
 
-FlappingPeriod = [ 1.15]
-Angle_of_Attack = [5]
-Air_Speed = [4]
+FlappingPeriod = [ 0.6]
+Angle_of_Attack = [60]
+Air_Speed = [6]
 
 # Function call
-n = 1000000
+n = kok
 for i in FlappingPeriod:
     for j in Air_Speed:
         for k in Angle_of_Attack:
